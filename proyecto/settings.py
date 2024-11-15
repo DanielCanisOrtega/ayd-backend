@@ -35,7 +35,7 @@ AUTH_USER_MODEL = 'proyeccion_social.User'
 
 INSTALLED_APPS = [
     'rest_framework',
-    'proyeccion_social.apps.ProyeccionSocialConfig'
+    'proyeccion_social.apps.ProyeccionSocialConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'proyecto.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'ayd',
+        'USER': 'admin',
+        'PASSWORD': 'claveayd',
+        'HOST': '127.0.0.1',  # Dirección IP pública de la máquina con Docker
+        'PORT': '5432',
     }
 }
 

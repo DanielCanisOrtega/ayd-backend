@@ -48,21 +48,17 @@ class StudentProfile(models.Model):
 class TeacherProfile(models.Model):
     #atributos de un profesor
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='teacher_profile')
-    employee_id = models.CharField(max_length=20, unique=True, verbose_name="ID de Empleado")
+    #definir si un profesor tiene código o no
+    codigo = models.CharField(max_length=20, unique=True, verbose_name="Código")
     department = models.CharField(max_length=100, blank=True, verbose_name="Departamento")
-    hire_date = models.DateField(null=True, blank=True, verbose_name="Fecha de Contratación")
-    specialty = models.CharField(max_length=100, blank=True, verbose_name="Especialidad")
 
     def __str__(self):
         return f"Perfil de {self.user.username} (Docente)"
     
 # Perfil para Administrador
 class AdminProfile(models.Model):
-    #atributos de un administrador
+    #atributos de un administrador --> DEFINIR
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='admin_profile')
-    office_number = models.CharField(max_length=20, blank=True, verbose_name="Número de Oficina")
-    admin_level = models.CharField(max_length=50, blank=True, verbose_name="Nivel Administrativo")
-    phone_extension = models.CharField(max_length=10, blank=True, verbose_name="Extensión Telefónica")
 
     def __str__(self):
         return f"Perfil de {self.user.username} (Administrador)"
